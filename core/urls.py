@@ -11,8 +11,4 @@ urlpatterns = [
     path('service/', service, name='service_core'),
     path('team/', team, name='team_core'),
     path('testimonial/', testimonial, name='testimonial_core'),
-    
-
-    
-    
 ]
