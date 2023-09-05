@@ -1,5 +1,7 @@
+from django.forms.models import BaseModelForm
+from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 from django.contrib.auth.views import LoginView
 from .models import Category, Product
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -22,6 +24,9 @@ class ProductCreateView(LoginRequiredMixin,  CreateView, ):
     fields = ['productName', 'description', 'price', 'image', 'category']
     # success_url = '/products/menu-product/'
     success_url = '/products/list-product/'
+    def form_valid(self, form):
+        self.object = form.save()
+        return super().form_valid(form)
 
 
 class MenuProducts(LoginRequiredMixin, LoginView, ):
@@ -32,4 +37,10 @@ class ProductsView (ListView):
     model = Product
     context_object_name = 'products'
     
+class ProductUpdateView (LoginRequiredMixin, UpdateView ):
+    model = Product
+    fields = ['productName', 'description', 'price', 'image', 'category']
+    # template_name = 'products_update_form.html'
+    success_url='home_core'
+    #Validar el metodo antes de guardarlo
     
