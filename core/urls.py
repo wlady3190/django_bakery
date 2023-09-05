@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import about, contact, home, menu, service, team, testimonial
+from .views import *
 
 
 

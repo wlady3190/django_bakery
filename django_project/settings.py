@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'core',
+    'products',
+    'blog',
+    
 ]
 
 MIDDLEWARE = [
@@ -51,6 +55,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'django_project.urls'
+
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 TEMPLATES = [
     {
@@ -69,6 +75,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 
 # Database
@@ -128,3 +138,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# REDIRECCIONES
+LOGIN_REDIRECT_URL = 'menu_products'
+
+LOGOUT_REDIRECT_URL = 'home_core'
+
+LOGIN_URL = 'home_core'
+
+LOGIN_URL = '/products/products/login/'

@@ -1,0 +1,14 @@
+from django.urls import path, include
+from . import views
+from django.contrib import admin
+
+
+
+urlpatterns = [
+    # path('menu-product/', views.MenuProducts, name='menu_products' ) ,
+    path('menu-product/', views.MenuProducts.as_view(), name='menu_products' ) ,  
+    path('new-category/', views.CategoryCreateView.as_view(), name='new_category' ),
+    path('list-product/', views.ProductsView.as_view(), name='product_list' ),
+    path('new-product/', views.ProductCreateView.as_view(), name='new_product' ),
+    path('products/', include('django.contrib.auth.urls')),
+]

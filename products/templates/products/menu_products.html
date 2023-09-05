@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
+
+<div class="container mt-4">
+
+{{user.is_staff}}
+
+{% if user.is_staff %}
+
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Insert a New Category</h5>
+          <p class="card-text">If the bakey create a new Category, include here!</p>
+          <a href="{% url 'new_category' %}" class="btn btn-primary">Add new Cake Category</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Insert a New Product</h5>
+          <p class="card-text">Include here all the information about the new creations!, don't Forget, each Cake has its own Category! </p>
+          <a href="{% url 'new_product' %}" class="btn btn-primary">Add A New Product</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% else %}
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Rate Us!</h5>
+        <p class="card-text">If you want to give us an feedback, click here!</p>
+        <a href="{% url 'new_comment' %}" class="btn btn-primary">Add new review</a>
+      </div>
+    </div>
+  </div>
+
+{% endif %}
+
+{% endblock content %}

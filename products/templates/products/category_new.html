@@ -1,0 +1,11 @@
+
+<h1>Creando categoría</h1>
+
+<form action="" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  {% comment %} {{form.categoryName}} {% endcomment %}
+
+  <input type="submit" value="save" />
+</form>
+

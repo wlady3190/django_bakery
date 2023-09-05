@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+<link href='{% static 'core/css/bootstrap.min.css' %}' rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'core/css/mdb.min.css' %}" />
+
+{% load custom_filters %}
+
+
+
+{% block content %}
+
+
+
+
+    <div class="container" style='height:50vh'>
+        <div class="row">
+            <!-- Columna de Bienvenida -->
+            <div class="col-md-6 d-flex align-items-center">
+                <div>
+                    <h1 class="display-4">Management System</h1>
+                    <h2 class="display-4">"Le Petit Croissant"</h1>
+
+                    <!-- Puedes agregar más contenido aquí -->
+                </div>
+            </div>
+
+
+            <!-- Columna de Formulario de Inicio de Sesión -->
+            <div class="col-md-6">
+                <div class="container mt-5">
+                    <h2 class="text-center">Iniciar Sesión</h2>
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label for="username">Usuario</label>
+                            {{form.username | add_class:'form-control'}}
+
+
+                            {% comment %} <input type="text" class="form-control" id="username" name="username" required> {% endcomment %}
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            {{form.password| add_class:'form-control'}}
+                            {% comment %} <input type="password" class="form-control" id="password" name="password" required> {% endcomment %}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                        {% comment %} <a href="" class="btn btn-primary border-inner py-3 px-5">Log In</a> {% endcomment %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}

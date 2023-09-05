@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% load custom_filters %}
+{% block content %}
+
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Aquí puedes agregar la imagen -->
+            <img src="{% static 'core/img/offer.jpg' %}" alt="imagen pastel" class='img-fluid my-5'>
+        </div>
+        <div class="col-md-6">
+            <h3>Hi {{ user }}! Add your carrear and your comment!</h3>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Profession</label>
+                    {{ form.profession | add_class:'form-control' }}
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Comentario</label>
+                    {{ form.content | add_class:'form-control' }}
+                </div>
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
