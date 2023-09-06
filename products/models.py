@@ -16,9 +16,9 @@ class Category(models.Model):
 
 class Product(models.Model):
     productName = models.CharField(max_length=200)
-    description = models.TextField()
-    price = models.DecimalField(decimal_places=2, max_digits=5)
-    image = models.ImageField(upload_to='products', default='pastel_default.png')
+    description = models.TextField(default='Include a description')
+    price = models.DecimalField(decimal_places=2, max_digits=5, default=0.00)
+    image = models.ImageField(default='default_cake.jpg', upload_to='product',)
     createdProduct = models.DateTimeField(default=now)
     modifiedProduct = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

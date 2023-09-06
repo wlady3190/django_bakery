@@ -1,3 +1,7 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
 
 <h1>Creando categoría</h1>
 
@@ -5,7 +9,8 @@
   {% csrf_token %}
   {{form.as_p}}
   {% comment %} {{form.categoryName}} {% endcomment %}
-
+  
   <input type="submit" value="save" />
 </form>
 
+{% endblock content %}

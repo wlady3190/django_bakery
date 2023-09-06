@@ -20,7 +20,8 @@
             Price: USD {{product.price}}
           </div>
           <p class="card-text"><small class="text-body-secondary">Last updated {{product.modifiedProduct}}</small></p>
-          <a href='{% url 'update_product' product.id %}'>Update</a>
+          <a href='{% url 'delete_product' product.id %}'><button type="button" class="btn btn-outline-danger">Delete</button></a>
+          <a href='{% url 'update_product' product.id %}'><button type="button" class="btn btn-outline-success">Update</button></a>
         </div>
       </div>
     </div>

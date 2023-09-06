@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'core',
     'products',
     'blog',
+    'chefs'
     
 ]
 
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,8 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
@@ -129,6 +128,10 @@ USE_I18N = True
 USE_TZ = True
 
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -144,6 +147,8 @@ LOGIN_REDIRECT_URL = 'menu_products'
 
 LOGOUT_REDIRECT_URL = 'home_core'
 
-LOGIN_URL = 'home_core'
+
 
 LOGIN_URL = '/products/products/login/'
+
+SESSION_COOKIE_AGE = 3600

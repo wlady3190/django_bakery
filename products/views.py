@@ -1,7 +1,7 @@
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
 from .models import Category, Product
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -41,6 +41,20 @@ class ProductUpdateView (LoginRequiredMixin, UpdateView ):
     model = Product
     fields = ['productName', 'description', 'price', 'image', 'category']
     # template_name = 'products_update_form.html'
-    success_url='home_core'
-    #Validar el metodo antes de guardarlo
-    
+    success_url='/products/list-product/'
+
+class ProductDeleteView (LoginRequiredMixin, DeleteView ):
+    model = Product
+    success_url='/products/list-product/'
+
+
+# class ProductsByCategoryView(ListView):
+#     model = Product
+#     fields = ['productName', 'description', 'price', 'image',]
+#     context_object_name='products'
+#     template_name = 'products/menu.html'   
+
+def productsByCategoryView(request):
+    products_context = Product.objects.all()
+    categories_context = Category.objects.all()
+    return render(request, 'products/menu.html', {'products':products_context, 'categories':categories_context})
