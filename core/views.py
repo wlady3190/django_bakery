@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import CreateView
-from products.models import Product
+from django.views.generic import CreateView, ListView
+from products.models import Category
+
 
 # Create your views here.
 
-def home (request):
-    return render(request, 'core/index.html')
+# def home (request):
+#     return render(request, 'core/index.html')
 
 
 def about (request):
@@ -26,3 +27,7 @@ def service(request):
 def testimonial (request):
     return render(request, 'core/testimonial.html')
 
+class HomeView(ListView):
+    model = Category
+    template_name = 'core/index.html'
+    context_object_name='categories'

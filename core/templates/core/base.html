@@ -157,24 +157,24 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto mx-lg-auto py-0">
-          <a href="{% url 'home_core' %}" class="nav-item nav-link active"
+          <a href="{% url 'home_core' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}"
             >Home</a
           >
-          <a href=" {% url 'about_core' %}" class="nav-item nav-link"
+          <a href=" {% url 'about_core' %}" class="nav-item nav-link {% if request.path == '/about/' %}active{% endif %} "
             >About Us</a
           >
-          <a href="{% url 'menu' %}" class="nav-item nav-link"
+          <a href="{% url 'menu' %}" class="nav-item nav-link {% if request.path == '/products/' %}active{% endif %}"
             >Menu & Pricing</a
           >
-          <a href="{% url 'team' %}" class="nav-item nav-link"
+          <a href="{% url 'team' %}" class="nav-item nav-link {% if request.path == '/chefs/' %}active{% endif %}"
             >Master Chefs</a
           >
 
-          <a href="{% url 'testimonial_core' %}" class="nav-item nav-link"
+          <a href="{% url 'testimonial_core' %}" class="nav-item nav-link {% if request.path == '/testimonial/' %}active{% endif %}"
           >Testimonial</a
         >
 
-          <a href="{% url 'contact_core' %}" class="nav-item nav-link"
+          <a href="{% url 'contact_core' %}" class="nav-item nav-link {% if request.path == '/contact/' %}active{% endif %}"
             >Contact Us</a
           >
         </div>

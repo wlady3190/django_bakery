@@ -1,27 +1,29 @@
 <!--CARGA DE ARCHIVOS DE PLANTILLAS-->
 {% extends 'core/base.html' %}
 {% load static %}
-{% comment %} <link rel="stylesheet" href="{% static 'core/css/mdb.min.css' %}" /> {% endcomment %}
+
 {% load custom_filters %}
 
 
 {% block content %}
 <div class="container py-5">
+  <h1>New Product</h1>
   <form class="needs-validation" method='post' enctype="multipart/form-data" >
     {% csrf_token %}
     <div class="form-row">
       <div class="col-md-4 mb-3">
-        <label for="validationDefault01">Producto</label>
+        <label for="validationDefault01">Product</label>
 
         {{ form.productName | add_class:'form-control' }}
+
         <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefault02">Descripción</label>
+        <label for="validationDefault02">Description</label>
         {{ form.description | add_class:'form-control' }}
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefaultUsername">Precio</label>
+        <label for="validationDefaultUsername">Price</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend2">USD</span>
@@ -32,19 +34,16 @@
     </div>
     <div class="form-row">
       <div class="col-md-6 mb-3">
-        <label for="validationDefault03">Imagen</label>
+        <label for="validationDefault03">Image</label>
         {{ form.image | add_class:'form-control' }}
       </div>
       <div class="col-md-3 mb-3">
-        <label for="validationDefault04">Categoría</label>
+        <label for="validationDefault04">Category</label>
         {{ form.category | add_class:'form-control' }}
       </div>
     </div>
-    <button class="btn btn-primary" type="submit">Guardar</button>
+    <button class="btn btn-primary" type="submit">Save</button>
   </form>
 </div>
 
 {% endblock content %}
-{% comment %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
-{% endcomment %}

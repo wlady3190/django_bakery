@@ -6,6 +6,7 @@ from django.utils.timezone import now
 
 class Category(models.Model):
     categoryName = models.CharField(max_length=100)
+    description = models.TextField()
 
     class Meta:
         ordering = ['categoryName',]
@@ -15,8 +16,8 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    productName = models.CharField(max_length=200)
-    description = models.TextField(default='Include a description')
+    productName = models.CharField(max_length=200 )
+    description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=5, default=0.00)
     image = models.ImageField(default='default_cake.jpg', upload_to='product',)
     createdProduct = models.DateTimeField(default=now)

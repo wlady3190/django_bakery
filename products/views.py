@@ -13,12 +13,12 @@ from django.contrib.auth.decorators import login_required
 class CategoryCreateView(LoginRequiredMixin,  CreateView,  ):
     model = Category
     template_name = 'products/category_new.html'
-    fields = ['categoryName']
+    fields = ['categoryName','description']
     success_url = '/products/menu-product/'
     
 
 
-class ProductCreateView(LoginRequiredMixin,  CreateView, ):
+class ProductCreateView(LoginRequiredMixin, CreateView, ):
     model = Product
     template_name = 'products/product_new.html'
     fields = ['productName', 'description', 'price', 'image', 'category']
@@ -32,7 +32,7 @@ class ProductCreateView(LoginRequiredMixin,  CreateView, ):
 class MenuProducts(LoginRequiredMixin, LoginView, ):
     template_name = 'products/menu_products.html'
 
-class ProductsView (ListView):
+class ProductsView (LoginRequiredMixin, ListView):
     template_name = 'products/products_view.html'
     model = Product
     context_object_name = 'products'
@@ -47,6 +47,7 @@ class ProductDeleteView (LoginRequiredMixin, DeleteView ):
     model = Product
     success_url='/products/list-product/'
 
+   
 
 # class ProductsByCategoryView(ListView):
 #     model = Product

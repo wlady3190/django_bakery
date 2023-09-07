@@ -142,13 +142,14 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# REDIRECCIONES
+# REDIRECCIONES => Luego de Login
 LOGIN_REDIRECT_URL = 'menu_products'
 
+# REDIRECCIONES => Luego de LogOut
 LOGOUT_REDIRECT_URL = 'home_core'
 
-
-
+#Ingreso a pantallas protegidas con autentificación
 LOGIN_URL = '/products/products/login/'
 
-SESSION_COOKIE_AGE = 3600
+#Duración de sesiones
+SESSION_COOKIE_AGE = 12000
