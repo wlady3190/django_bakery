@@ -23,6 +23,8 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('comment/',include('blog.urls')),
     path('chefs/', include('chefs.urls')),
+    # path('api/v1/', include('chefs.urls')),
+    
     path('admin/', admin.site.urls),
 ]
 

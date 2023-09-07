@@ -38,11 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'core',
     'products',
     'blog',
     'chefs'
-    
+
 ]
 
 MIDDLEWARE = [
@@ -76,8 +77,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
-
-
 
 
 # Database
@@ -148,8 +147,14 @@ LOGIN_REDIRECT_URL = 'menu_products'
 # REDIRECCIONES => Luego de LogOut
 LOGOUT_REDIRECT_URL = 'home_core'
 
-#Ingreso a pantallas protegidas con autentificación
+# Ingreso a pantallas protegidas con autentificación
 LOGIN_URL = '/products/products/login/'
 
-#Duración de sesiones
+# Duración de sesiones
 SESSION_COOKIE_AGE = 12000
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+}
